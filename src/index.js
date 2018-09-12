@@ -1,15 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import ReactDom from 'react-dom';
+import SearchBar from './components/search_bar';
 
-import App from './components/app';
-import reducers from './reducers';
+const API_KEY = 'AIzaSyCFO39RM4Zj02FGUpvdoxaf9uIfoIKZBJU';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+//Create a ndew component. this component should procdue
+//some html
+const App = () => {
+  return (
+  <div>
+    <SearchBar />
+  </div>
+);
+}
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+//Take this components generate HTML and
+//Tput it on the page (in the DOM)
+ReactDom.render(<App />, document.querySelector('.container'))
